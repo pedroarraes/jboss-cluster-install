@@ -1,7 +1,7 @@
 # This playbook deploys a simple standalone Tomcat 7 server.
 
 - hosts: jboss-hosts
-  remote_user: root
+  remote_user: admin
   become: yes
   become_method: sudo
 
@@ -11,7 +11,7 @@
 - hosts: mod-cluster-hosts
   remote_user: root
   become: yes
-  become_method: sudo
+  become_method: admin
 
   roles:
     - update-so  
