@@ -1,0 +1,8 @@
+[jboss_hosts]
+host01
+host02
+host03
+
+[mod_cluster_hosts]
+lb01
+lb02

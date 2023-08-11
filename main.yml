@@ -1,0 +1,7 @@
+- hosts: jboss_hosts
+  remote_user: admin
+  become: yes
+  become_method: sudo
+
+  playbooks:
+    - update-so
