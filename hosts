@@ -1,17 +1,17 @@
 [jboss-hosts]
-domaincontroller
-host01
-host02
-host03
+domaincontroller ansible_ssh_pass=1234 ansible_ssh_user=admin
+host01 ansible_ssh_pass=1234 ansible_ssh_user=root
+host02 ansible_ssh_pass=1234 ansible_ssh_user=root
+host03 ansible_ssh_pass=1234 ansible_ssh_user=root
 
 [mod-cluster-hosts]
-lb01
-lb02
+lb01 ansible_ssh_pass=1234 ansible_ssh_user=root
+lb02 ansible_ssh_pass=1234 ansible_ssh_user=root
 
 [all]
-domaincontroller
-host01
-host02
-host03
-lb01
-lb02
+domaincontroller ansible_ssh_pass=1234 ansible_ssh_user=root
+host01 ansible_ssh_pass=1234 ansible_ssh_user=root
+host02 ansible_ssh_pass=1234 ansible_ssh_user=root
+host03 ansible_ssh_pass=1234 ansible_ssh_user=root
+lb01 ansible_ssh_pass=1234 ansible_ssh_user=root
+lb02 ansible_ssh_pass=1234 ansible_ssh_user=root
