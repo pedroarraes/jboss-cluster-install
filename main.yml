@@ -1,4 +1,4 @@
-- hosts: jboss_hosts
+- hosts: jboss-hosts
   remote_user: admin
   become: yes
   become_method: sudo
