@@ -1,8 +1,8 @@
 [jboss-hosts]
-host01
-host02
-host03
+host01 ansible_ssh_pass=1234 ansible_ssh_user=admin
+host02 ansible_ssh_pass=1234 ansible_ssh_user=admin
+host03 ansible_ssh_pass=1234 ansible_ssh_user=admin
 
 [mod-cluster-hosts]
-lb01
-lb02
+lb01 ansible_ssh_pass=1234 ansible_ssh_user=admin
+lb02 ansible_ssh_pass=1234 ansible_ssh_user=admin
