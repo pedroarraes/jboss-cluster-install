@@ -3,5 +3,5 @@
   become: yes
   become_method: sudo
 
-  playbooks:
+  roles:
     - update-so
