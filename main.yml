@@ -9,9 +9,9 @@
     - update-so
 
 - hosts: mod-cluster-hosts
-  remote_user: root
+  remote_user: admin
   become: yes
-  become_method: admin
+  become_method: sudo
 
   roles:
     - update-so  
