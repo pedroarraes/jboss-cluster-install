@@ -7,3 +7,11 @@ host03
 [mod-cluster-hosts]
 lb01
 lb02
+
+[all]
+domaincontroller
+host01
+host02
+host03
+lb01
+lb02
