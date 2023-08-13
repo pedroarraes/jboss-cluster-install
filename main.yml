@@ -1,10 +1,9 @@
 # This playbook deploys a simple standalone Tomcat 7 server.
 - name: Deploy JBoss EAP Cluster
-- hosts: all
+  hosts: all
   remote_user: root
   become: yes
   become_method: sudo
   roles:
     - jboss-eap
-    - mod-cluster
 
