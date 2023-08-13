@@ -1,5 +1,0 @@
-- name: Update RHEL
-  command: dnf update -y 
-
-- name: Clean DNF
-  command: dnf clean all

@@ -3,3 +3,6 @@
 
 - name: Clean DNF
   command: dnf clean all
+
+- name: Rebooting Hosts
+  command: reboot

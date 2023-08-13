@@ -1,0 +1,8 @@
+- name: Install OpenJDK
+  command: dnf java-17-openjdk.x86_64 -y 
+
+- name: Clean DNF
+  command: dnf clean all
+
+- name: Rebooting Hosts
+  command: reboot
