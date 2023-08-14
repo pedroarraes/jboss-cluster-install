@@ -1,7 +1,13 @@
-- hosts: all
+#- hosts: all
+#  remote_user: root
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - rhel
+
+- hosts: jboss-hosts
   remote_user: root
   become: yes
   become_method: sudo
   roles:
-    - rhel
-
+    - jboss-eap

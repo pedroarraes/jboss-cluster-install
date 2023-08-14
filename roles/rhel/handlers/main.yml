@@ -1,2 +1,0 @@
-- name: restart rhel
-  service: name=rhel state=restarted
