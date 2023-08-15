@@ -1,10 +1,10 @@
-- hosts: all
-  remote_user: root
-  become: yes
-  become_method: sudo
-  roles:
-    - rhel
-
+#- hosts: all
+#  remote_user: root
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - rhel
+#
 - hosts: jboss-hosts
   remote_user: root
   become: yes
@@ -12,9 +12,9 @@
   roles:
     - jboss-eap
 
-- hosts: mod-cluster-hosts
-  remote_user: root
-  become: yes
-  become_method: sudo
-  roles:
-    - mod-cluster
+#- hosts: mod-cluster-hosts
+#  remote_user: root
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - mod-cluster

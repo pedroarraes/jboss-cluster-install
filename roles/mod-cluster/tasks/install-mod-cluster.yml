@@ -1,0 +1,8 @@
+- name: Installing Mod_Cluster
+  shell: dnf install "{{ MOD_CLUSTER_VERSION }}" -y
+
+- name: Cleaning temp files
+  shell: dnf clean all  
+
+- name: Enable System Service
+  shell: systemctl enable httpd.service

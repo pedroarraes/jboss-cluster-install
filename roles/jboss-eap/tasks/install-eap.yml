@@ -1,0 +1,21 @@
+- name: Copy file JBoss install file with owner and permissions
+  ansible.builtin.copy:
+    src: roles/jboss-eap/packages/installer/{{EAP_FILE_INSTALL}}
+    dest: /home/{{JBOSS_USER}}/{{EAP_FILE_INSTALL}}
+    owner: "{{ JBOSS_USER }}"
+    mode: '0644'
+  
+- name: Preparing JBoss EAP workdir
+  shell: mkdir -pv {{WORKDIR}}
+
+- name: Unzip JBoss EAP
+  ansible.builtin.unarchive:
+    src: /home/{{JBOSS_USER}}/{{EAP_FILE_INSTALL}}
+    dest: "{{ WORKDIR }}"
+    remote_src: yes
+
+- name: Creating system permissions
+  shell: chown -R "{{ JBOSS_USER }}":"{{ JBOSS_USER }}" {{WORKDIR}}
+
+- name: Clean temp files
+  shell: rm /home/{{JBOSS_USER}}/{{EAP_FILE_INSTALL}}

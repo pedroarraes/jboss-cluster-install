@@ -1,3 +1,6 @@
+[jboss-domain-host]
+domaincontroller ansible_ssh_pass=1234 ansible_ssh_user=admin
+
 [jboss-hosts]
 domaincontroller ansible_ssh_pass=1234 ansible_ssh_user=admin
 host01 ansible_ssh_pass=1234 ansible_ssh_user=root
