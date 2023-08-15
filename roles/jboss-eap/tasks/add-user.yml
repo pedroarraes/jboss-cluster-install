@@ -1,0 +1,13 @@
+- name: Validate User
+  shell: id "{{ JBOSS_USER }}" | grep -c "{{ JBOSS_USER }}"
+  ignore_errors: true
+  register: validate_user
+
+- name: Creating user
+  command: useradd "{{ JBOSS_USER }}" 
+  when: validate_user.stdout == '0'
+
+- name: User Already Exists in the System
+  shell: id "{{ JBOSS_USER }}"
+  register: user_info
+  when: validate_user.stdout == '1'

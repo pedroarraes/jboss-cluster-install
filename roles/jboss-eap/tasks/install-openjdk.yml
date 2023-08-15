@@ -1,0 +1,7 @@
+- name: Installing OpenJDK
+  shell: dnf install "{{ OPENJDK_VERSION }}" -y
+
+- name: Cleaning temp files
+  shell: dnf clean all  
+
+  
