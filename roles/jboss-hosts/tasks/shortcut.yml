@@ -1,0 +1,41 @@
+- name: Creating log folder
+  shell: mkdir -pv /var/log/jboss-eap
+
+- name: Creating system permissions
+  shell: chown -R "{{ JBOSS_USER }}":"{{ JBOSS_USER }}" /var/log/jboss-eap
+
+- name: Copy Configurations Files
+  ansible.builtin.copy:
+    src: roles/domain-controller/config/jboss-eap.conf
+    dest: /etc/default/
+    owner: "{{ JBOSS_USER }}"
+
+
+- name: Install the latest initscripts
+  ansible.builtin.dnf:
+    name: initscripts
+    state: latest
+
+- name: Copy Shortcut
+  ansible.builtin.copy:
+    src: /opt/jboss-eap-7.4/bin/init.d/jboss-eap-rhel.sh
+    dest: /etc/init.d/jboss-eap-rhel.sh
+    owner: root
+    group: root
+    mode: '0755'
+    backup: yes
+
+- name: Configuring Shortcut 
+  shell: systemctl enable jboss-eap-rhel.sh
+  
+- name: Configuring Starter
+  shell: chkconfig --add jboss-eap-rhel.sh 
+   
+- name: Configuring Autostart
+  shell: restorecon /etc/init.d/jboss-eap-rhel.sh
+
+- name: Configuring SELinux  - Step 4
+  shell: chkconfig jboss-eap-rhel.sh on   
+
+- name: Starting JBOSS-EAP
+  shell: systemctl start jboss-eap-rhel.service

@@ -1,0 +1,2 @@
+- name: Configure admin user
+  shell: /opt/jboss-eap-7.4/bin/./add-user.sh -u "{{ USER_ADMIN_NAME }}" -p "{{ ADMIN_PASSWORD }}" -g 'admin'

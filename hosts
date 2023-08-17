@@ -2,6 +2,11 @@
 domaincontroller ansible_ssh_pass=1234 ansible_ssh_user=admin
 
 [jboss-hosts]
+host01 ansible_ssh_pass=1234 ansible_ssh_user=root
+host02 ansible_ssh_pass=1234 ansible_ssh_user=root
+host03 ansible_ssh_pass=1234 ansible_ssh_user=root
+
+[jboss-all-hosts]
 domaincontroller ansible_ssh_pass=1234 ansible_ssh_user=admin
 host01 ansible_ssh_pass=1234 ansible_ssh_user=root
 host02 ansible_ssh_pass=1234 ansible_ssh_user=root
