@@ -1,24 +1,22 @@
-#- hosts: all
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - rhel
-#
-#- hosts: jboss-all-hosts
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - jboss-eap
+- hosts: all
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - rhel
 
-#- hosts: mod-cluster-hosts
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - mod-cluster
-
+- hosts: jboss-all-hosts
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - jboss-eap
+- hosts: mod-cluster-hosts
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - mod-cluster
 - hosts: jboss-domain-host
   remote_user: root
   become: yes
@@ -26,3 +24,9 @@
   roles:
     - domain-controller
 
+- hosts: jboss-hosts
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - jboss-hosts

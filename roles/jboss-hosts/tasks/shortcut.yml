@@ -6,7 +6,7 @@
 
 - name: Copy Configurations Files
   ansible.builtin.copy:
-    src: roles/domain-controller/config/jboss-eap.conf
+    src: roles/jboss-hosts/config/jboss-eap.conf
     dest: /etc/default/
     owner: "{{ JBOSS_USER }}"
 
@@ -34,7 +34,7 @@
 - name: Configuring Autostart
   shell: restorecon /etc/init.d/jboss-eap-rhel.sh
 
-- name: Configuring SELinux  - Step 4
+- name: Configuring SELinux
   shell: chkconfig jboss-eap-rhel.sh on   
 
 - name: Starting JBOSS-EAP

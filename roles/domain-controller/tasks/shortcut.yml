@@ -34,7 +34,7 @@
 - name: Configuring Autostart
   shell: restorecon /etc/init.d/jboss-eap-rhel.sh
 
-- name: Configuring SELinux  - Step 4
+- name: Configuring SELinux
   shell: chkconfig jboss-eap-rhel.sh on   
 
 - name: Starting JBOSS-EAP
