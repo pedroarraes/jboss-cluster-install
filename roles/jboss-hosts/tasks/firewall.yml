@@ -1,9 +1,0 @@
-- name: Add port 9990/tcp to firewall
-  ansible.posix.firewalld:
-    port: 9990/tcp
-    permanent: true
-    immediate: true
-    state: enabled
-
-- name: Restart Firewall
-  shell: systemctl start firewalld.service

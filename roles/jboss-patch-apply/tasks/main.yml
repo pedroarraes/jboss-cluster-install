@@ -1,0 +1,29 @@
+#- name: Copy local files to a remote host, transferring files via SSH
+#  ansible.builtin.copy:
+#    src: roles/jboss-patch-apply/pakages/patches/
+#    dest: /home/{{JBOSS_USER}}/
+#    owner: "{{ JBOSS_USER }}"
+#    mode: '0644'
+    
+- name: Get patches
+  ansible.builtin.shell: ls -lrth /home/{{JBOSS_USER}}/
+  register: patches
+
+- name: Get hostname
+  ansible.builtin.shell: hostname
+  register: hostname
+
+
+- debug:
+    var: hostname.stdout.split('.')[0]
+
+- name: apply current patches
+  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/host={{hostname.stdout.split('.')[0]}}:shutdown(restart)'"
+
+
+
+#- name: apply current patches
+#  ansible.builtin.shell: {{JBOSS_HOME}}/bin/./jboss-cli.sh --connect --command="patch apply /home/{{JBOSS_USER}}/{{ item }}" && {{JBOSS_HOME}}/bin/./jboss-cli.sh --connect --command="shutdown --restart=true"
+#  with_items: "{{ patches.stdout_lines }}"
+#  register: patch_apply
+#/host=master:shutdown(restart)

@@ -1,3 +1,4 @@
 JBOSS_USER: 'jboss-eap'
 ADMIN_PASSWORD: '1Password!'
 USER_ADMIN_NAME: 'admin-user'
+ACCESS_TOKEN: 'MVBhc3N3b3JkIQ=='

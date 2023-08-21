@@ -1,3 +1,9 @@
+- name: Copy host-master to host
+  ansible.builtin.copy:
+    src: roles/domain-controller/config/host-master.xml
+    dest: /opt/jboss-eap-7.4/domain/configuration/host-master.xml
+    owner: "{{ JBOSS_USER }}"
+
 - name: Creating log folder
   shell: mkdir -pv /var/log/jboss-eap
 
@@ -39,3 +45,4 @@
 
 - name: Starting JBOSS-EAP
   shell: systemctl start jboss-eap-rhel.service
+  
