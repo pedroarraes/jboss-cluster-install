@@ -1,3 +1,4 @@
+- import_tasks: configure-jboss.yml
 - import_tasks: shortcut.yml
 #- import_tasks: firewall.yml
 #- import_tasks: user.yml

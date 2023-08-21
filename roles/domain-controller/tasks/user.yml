@@ -1,2 +1,11 @@
-- name: Configure admin user
+- name: Configure admin user domain controller
   shell: /opt/jboss-eap-7.4/bin/./add-user.sh -u "{{ USER_ADMIN_NAME }}" -p "{{ ADMIN_PASSWORD }}" -g 'admin'
+
+- name: Configure admin user host host01
+  shell: /opt/jboss-eap-7.4/bin/./add-user.sh -u "{{ USER_ADMIN_NAME_HOST01 }}" -p "{{ ADMIN_PASSWORD }}" -g 'admin'
+
+- name: Configure admin user host host02
+  shell: /opt/jboss-eap-7.4/bin/./add-user.sh -u "{{ USER_ADMIN_NAME_HOST02 }}" -p "{{ ADMIN_PASSWORD }}" -g 'admin'
+
+- name: Configure admin user host host03
+  shell: /opt/jboss-eap-7.4/bin/./add-user.sh -u "{{ USER_ADMIN_NAME_HOST03 }}" -p "{{ ADMIN_PASSWORD }}" -g 'admin'

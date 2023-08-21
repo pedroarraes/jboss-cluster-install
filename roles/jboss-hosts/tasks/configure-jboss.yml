@@ -1,0 +1,18 @@
+- name: Copy host-slave to host
+  ansible.builtin.copy:
+    src: roles/jboss-hosts/config/host-slave.xml
+    dest: /opt/jboss-eap-7.4/domain/configuration/host-slave.xml
+    owner: "{{ JBOSS_USER }}"
+
+- name: Get HOSTNAME
+  ansible.builtin.shell: hostname
+  register: hostname
+
+- name: Replace HOSTNAME
+  ansible.builtin.replace:
+    path: /opt/jboss-eap-7.4/domain/configuration/host-slave.xml
+    regexp: 'HOSTNAME'
+    replace: "{{ hostname.stdout.split('.')[0] }}"
+
+- debug:
+    var: hostname.stdout.split('.')[0]
