@@ -1,38 +1,39 @@
-#- hosts: all
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - rhel
-#
-#- hosts: jboss-all-hosts
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - jboss-eap
-#
-#- hosts: mod-cluster-hosts
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - mod-cluster
-#
-#- hosts: jboss-domain-host
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - domain-controller
-#
-#- hosts: jboss-hosts
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - jboss-hosts
-#
+- hosts: all
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - rhel
+
+- hosts: jboss-all-hosts
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - jboss-eap
+
+- hosts: mod-cluster-hosts
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - mod-cluster
+
+- hosts: jboss-domain-host
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - domain-controller
+
+- hosts: jboss-hosts
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - jboss-hosts
+    - jboss-patch-apply  
+
 - hosts: jboss-domain-host
   remote_user: root
   become: yes
