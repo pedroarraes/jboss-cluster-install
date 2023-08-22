@@ -14,10 +14,10 @@
   register: hostname
 
 - name: Apply currente patches
-  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='patch apply /home/{{JBOSS_USER}}/{{ item }} --host={{hostname.stdout.split('.')[0]}}' && {{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/host={{hostname.stdout.split('.')[0]}}:shutdown(restart)' && sleep 15"
+  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='patch apply /home/{{JBOSS_USER}}/{{ item }} --host={{hostname.stdout.split('.')[0]}}' && {{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/host={{hostname.stdout.split('.')[0]}}:shutdown(restart)' && sleep 20"
   ignore_errors: true
   with_items: "{{ patches.stdout_lines }}"
-  register: patch_apply
+ # register: patch_apply
 
 - name: Deleting patches files
   ansible.builtin.shell: rm -rf /home/{{JBOSS_USER}}/{{ item }}

@@ -5,7 +5,7 @@
   dnf:
     name: "*"
     state: latest
-
+  
 - name: Rebooting servers
   tags: reboot
   become: yes
