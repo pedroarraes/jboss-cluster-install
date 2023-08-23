@@ -1,1 +1,3 @@
+- import_tasks: configure-firewall.yml
 - import_tasks: install-mod-cluster.yml
+- import_tasks: configure-mod-cluster.yml

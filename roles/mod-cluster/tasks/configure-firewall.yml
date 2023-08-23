@@ -1,0 +1,23 @@
+- name: Add port 80/tcp to firewall
+  ansible.posix.firewalld:
+    port: 80/tcp
+    permanent: true
+    immediate: true
+    state: enabled
+
+- name: Add port 443/tcp to firewall
+  ansible.posix.firewalld:
+    port: 443/tcp
+    permanent: true
+    immediate: true
+    state: enabled
+
+- name: Add port 6666/tcp to firewall
+  ansible.posix.firewalld:
+    port: 6666/tcp
+    permanent: true
+    immediate: true
+    state: enabled
+
+- name: Restart Firewall
+  shell: systemctl restart firewalld.service

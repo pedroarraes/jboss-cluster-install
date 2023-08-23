@@ -6,4 +6,4 @@
     state: enabled
 
 - name: Restart Firewall
-  shell: systemctl start firewalld.service
+  shell: systemctl restart firewalld.service
