@@ -6,3 +6,7 @@
 
 - name: Enable System Service
   shell: systemctl enable httpd.service
+
+- name: Start System Service
+  shell: systemctl start httpd.service
+  
