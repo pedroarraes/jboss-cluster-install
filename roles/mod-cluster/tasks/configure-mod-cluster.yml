@@ -1,0 +1,26 @@
+- name: Creating cache directory
+  shell: mkdir -p /var/cache/mod_cluster
+
+- name: Updating SELinux policy
+  shell: restorecon -R /var/cache/mod_cluster
+
+- name: Copy mod_cluster.conf to /etc/httpd/conf.d
+  copy:
+    src: /home/parraes/jboss-cluster-install/roles/mod-cluster/config/mod_cluster.conf
+    dest: /etc/httpd/conf.d/mod_cluster.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Get hostname
+  ansible.builtin.shell: hostname
+  register: hostname
+
+- name: Replace HOSTNAME
+  ansible.builtin.replace:
+    path: /etc/httpd/conf.d/mod_cluster.conf
+    regexp: 'HOSTNAME'
+    replace: "{{ hostname.stdout.split('.')[0] }}"
+
+- name: restart mod_cluster
+  shell: systemctl restart httpd.service
