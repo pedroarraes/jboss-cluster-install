@@ -14,7 +14,7 @@
   register: hostname
 
 - name: Apply currente patches
-  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='patch apply {{ item }} --host={{hostname.stdout.split('.')[0]}}' && {{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/host={{hostname.stdout.split('.')[0]}}:shutdown(restart)' && sleep 15"
+  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='patch apply {{ item }} --host={{hostname.stdout.split('.')[0]}}' && sleep 5 && {{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/host={{hostname.stdout.split('.')[0]}}:shutdown(restart)' && sleep 20"
   ignore_errors: true
   with_items: "{{ patches.stdout_lines }}"
  

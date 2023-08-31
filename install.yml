@@ -12,6 +12,22 @@
   roles:
     - jboss-eap
 
+- hosts: jboss-domain-host
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - domain-controller
+    - jboss-patch-apply  
+        
+- hosts: jboss-hosts
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - jboss-hosts
+    - jboss-patch-apply  
+
 - hosts: mod-cluster-hosts
   remote_user: root
   become: yes
@@ -24,16 +40,11 @@
   become: yes
   become_method: sudo
   roles:
-    - domain-controller
-    - jboss-patch-apply  
-    - mod-cluster-registry
+    - mod-cluster-registry 
 
-- hosts: jboss-hosts
+- hosts: all
   remote_user: root
   become: yes
   become_method: sudo
   roles:
-    - jboss-hosts
-    - jboss-patch-apply  
-
-
+    - rhel

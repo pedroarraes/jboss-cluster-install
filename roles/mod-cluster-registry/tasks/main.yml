@@ -1,14 +1,22 @@
-- name: Change Main Server Group Profile
-  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/server-group=main-server-group:write-attribute(name=profile, value=full-ha)'"
-
 - name: Configure Socket Binding One
   ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/socket-binding-group=full-ha-sockets/remote-destination-outbound-socket-binding=proxy01:add(host=lb01, port=6666)'"
+  ignore_errors: true
 
 - name: Configure Socket Binding Two
   ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/socket-binding-group=full-ha-sockets/remote-destination-outbound-socket-binding=proxy02:add(host=lb02, port=6666)'"
+  ignore_errors: true
 
-- name: Configure Socket Binding Group on Full-HA-Profile
+- name: Configure profile full ha
   ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/profile=full-ha/subsystem=modcluster/proxy=default:write-attribute(name=proxies, value=[proxy01, proxy02])'"
+  ignore_errors: true
 
-- name: Reload Servers
-  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command=':reload-servers'"
+- name: Change Socket Binding 
+  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/server-group=main-server-group:write-attribute(name=socket-binding-group, value=full-ha-sockets)'"
+  ignore_errors: true
+
+- name: Change Main Server Group Profile
+  ansible.builtin.shell: "{{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command='/server-group=main-server-group:write-attribute(name=profile, value=full-ha)'"
+  ignore_errors: true
+
+- name: Reload Server Group 
+  ansible.builtin.shell: "sleep 10 && {{ JBOSS_HOME }}/bin/./jboss-cli.sh -c --command=':reload-servers'"
