@@ -1,4 +1,0 @@
-JBOSS_USER: 'jboss-eap'
-WORKDIR: '/opt'
-OPENJDK_VERSION: 'java-11-openjdk.x86_64' #VALID VALUES 'java-17-openjdk.x86_64', java-11-openjdk.x86_64, java-1.8.0-openjdk.x86_64
-EAP_FILE_INSTALL: 'jboss-eap-7.4.0.zip'

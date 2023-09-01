@@ -1,10 +1,13 @@
-- name: attaching subscriptions
-  command: subscription-manager attach --auto
+#- name: upgrade all packages
+#  dnf:
+#    name: "*"
+#    state: latest
+#  
+- name: update rhel packages
+  shell: dnf update -y
 
-- name: upgrade all packages
-  dnf:
-    name: "*"
-    state: latest
+- name: clean temporary files
+  shell: dnf clean all
   
 - name: Rebooting servers
   tags: reboot
