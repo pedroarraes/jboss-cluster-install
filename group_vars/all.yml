@@ -1,0 +1,13 @@
+# This file contains the variables that are common to all the hosts
+JBOSS_USER: 'jboss-eap'
+OPENJDK_VERSION: 'java-11-openjdk.x86_64' #VALID VALUES 'java-17-openjdk.x86_64', java-11-openjdk.x86_64, java-1.8.0-openjdk.x86_64
+EAP_FILE_INSTALL: 'jboss-eap-7.4.0.zip'
+WORKDIR: '/opt'
+ADMIN_PASSWORD: '1Password!'
+USER_ADMIN_NAME: 'admin-user'
+USER_ADMIN_NAME_HOST01: 'host01'
+USER_ADMIN_NAME_HOST02: 'host02'
+USER_ADMIN_NAME_HOST03: 'host03'
+JBOSS_HOME: '/opt/jboss-eap-7.4'
+APACHE_USER: 'apache'
+MOD_CLUSTER_VERSION: mod_proxy_cluster.x86_64
