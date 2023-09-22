@@ -1,6 +1,6 @@
 - name: Copy local files to a remote host, transferring files via SSH
   ansible.builtin.copy:
-    src: roles/jboss-patch-apply/pakages/patches/
+    src: packages/patches/
     dest: /home/{{JBOSS_USER}}/
     owner: "{{ JBOSS_USER }}"
     mode: '0644'

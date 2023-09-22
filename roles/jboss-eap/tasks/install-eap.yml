@@ -1,6 +1,6 @@
 - name: Copy file JBoss install file with owner and permissions
   ansible.builtin.copy:
-    src: roles/jboss-eap/packages/installer/{{EAP_FILE_INSTALL}}
+    src: packages/installer/{{EAP_FILE_INSTALL}}
     dest: /home/{{JBOSS_USER}}/{{EAP_FILE_INSTALL}}
     owner: "{{ JBOSS_USER }}"
     mode: '0644'
