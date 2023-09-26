@@ -27,6 +27,38 @@ This step is not necessary if you do not intend to apply updates to JBoss EAP pa
 
 ## Ansible Script
 
+The Ansible script is structured into three primary folders:
+.
+├── **group_vars**
+├── **packages**
+│   ├── installer
+│   └── patches
+└── **roles**
+    ├── domain-controller
+    │   ├── config
+    │   └── tasks
+    ├── jboss-eap
+    │   └── tasks
+    ├── jboss-hosts
+    │   ├── config
+    │   └── tasks
+    ├── jboss-patch-apply
+    │   └── tasks
+    ├── mod-cluster
+    │   ├── config
+    │   └── tasks
+    ├── mod-cluster-registry
+    │   └── tasks
+    ├── subscription
+    │   └── tasks
+    └── update-rhel
+        └── tasks
+
+### Folder group_vars
+
+In the "group_vars" folder, we house global environment variables. These variables are defined in the "all.yml" file, allowing you to modify default values as per your specific requirements.
+
+
 ## Architeture Concepts 
 
 ## Cluster EAP
