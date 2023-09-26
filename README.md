@@ -28,12 +28,12 @@ This step is not necessary if you do not intend to apply updates to JBoss EAP pa
 ## Ansible Script
 
 The Ansible script is structured into three primary folders:
-.[%hardbreaks]
-├── **group_vars**[%hardbreaks]
-├── **packages**[%hardbreaks]
-│   ├── installer[%hardbreaks]
-│   └── patches[%hardbreaks]
-└── **roles** +
+.__
+├── **group_vars**__
+├── **packages**__
+│   ├── installer__
+│   └── patches__
+└── **roles**__
     ├── domain-controller
     │   ├── config
     │   └── tasks
