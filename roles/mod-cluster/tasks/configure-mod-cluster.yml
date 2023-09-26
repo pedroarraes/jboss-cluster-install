@@ -6,11 +6,19 @@
 
 - name: Copy mod_cluster.conf to /etc/httpd/conf.d
   copy:
-    src: /home/parraes/jboss-cluster-install/roles/mod-cluster/config/mod_cluster.conf
+    src: roles/mod-cluster/config/mod_cluster.conf
     dest: /etc/httpd/conf.d/mod_cluster.conf
     owner: root
     group: root
     mode: 0644
+
+- name: Copy httpd.conf to /etc/httpd/conf
+  copy:
+    src: roles/mod-cluster/config/mod_cluster.conf
+    dest: /etc/httpd/conf.d/mod_cluster.conf
+    owner: root
+    group: root
+    mode: 0644    
 
 - name: Get hostname
   ansible.builtin.shell: hostname
