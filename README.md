@@ -34,30 +34,45 @@ The Ansible script is structured into three primary folders:
 │   ├── installer<br/>
 │   └── patches<br/>
 └── **roles**<br/>
-    ├── domain-controller
-    │   ├── config
-    │   └── tasks
-    ├── jboss-eap
-    │   └── tasks
-    ├── jboss-hosts
-    │   ├── config
-    │   └── tasks
-    ├── jboss-patch-apply
-    │   └── tasks
-    ├── mod-cluster
-    │   ├── config
-    │   └── tasks
-    ├── mod-cluster-registry
-    │   └── tasks
-    ├── subscription
-    │   └── tasks
-    └── update-rhel
-        └── tasks
+    ├── domain-controller<br/>
+    │   ├── config<br/>
+    │   └── tasks<br/>
+    ├── jboss-eap<br/>
+    │   └── tasks<br/>
+    ├── jboss-hosts<br/>
+    │   ├── config<br/>
+    │   └── tasks<br/>
+    ├── jboss-patch-apply<br/>
+    │   └── tasks<br/>
+    ├── mod-cluster<br/>
+    │   ├── config<br/>
+    │   └── tasks<br/>
+    ├── mod-cluster-registry<br/>
+    │   └── tasks<br/>
+    ├── subscription<br/>
+    │   └── tasks<br/>
+    └── update-rhel<br/>
+        └── tasks<br/>
 
 ### Folder group_vars
 
 In the "group_vars" folder, we house global environment variables. These variables are defined in the "all.yml" file, allowing you to modify default values as per your specific requirements.
 
+```yaml
+# This file contains the variables that are common to all the hosts
+JBOSS_USER: 'jboss-eap'
+OPENJDK_VERSION: 'java-11-openjdk.x86_64' #VALID VALUES 'java-17-openjdk.x86_64', java-11-openjdk.x86_64, java-1.8.0-openjdk.x86_64
+EAP_FILE_INSTALL: 'jboss-eap-7.4.0.zip'
+WORKDIR: '/opt'
+ADMIN_PASSWORD: '1Password!'
+USER_ADMIN_NAME: 'admin-user'
+USER_ADMIN_NAME_HOST01: 'host01'
+USER_ADMIN_NAME_HOST02: 'host02'
+USER_ADMIN_NAME_HOST03: 'host03'
+JBOSS_HOME: '/opt/jboss-eap-7.4'
+APACHE_USER: 'apache'
+MOD_CLUSTER_VERSION: mod_proxy_cluster.x86_64
+```
 
 ## Architeture Concepts 
 
