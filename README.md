@@ -27,13 +27,13 @@ This step is not necessary if you do not intend to apply updates to JBoss EAP pa
 
 ## Ansible Script
 
-The Ansible script is structured into three primary folders:
+The Ansible script is structured into three primary folders, group_vars, packages, roles:
 .<br/>
-├── **group_vars**<br/>
-├── **packages**<br/>
+├── group_vars<br/>
+├── packages<br/>
 │   ├── installer<br/>
 │   └── patches<br/>
-└── **roles**<br/>
+└── roles<br/>
     ├── domain-controller<br/>
     │   ├── config<br/>
     │   └── tasks<br/>
@@ -73,6 +73,11 @@ JBOSS_HOME: '/opt/jboss-eap-7.4'
 APACHE_USER: 'apache'
 MOD_CLUSTER_VERSION: mod_proxy_cluster.x86_64
 ```
+
+### Folder packages
+In this folder, you will find the downloaded JBoss EAP Installer and patches available for updating your cluster. For instance:
+
+![Alt text](meta/image01.png)
 
 ## Architeture Concepts 
 
