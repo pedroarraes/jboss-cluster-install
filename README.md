@@ -11,15 +11,25 @@ This Ansible script serves as the default implementation for setting up a JBoss 
 * JBoss EAP 7.4.
 
 ## Summary
+* [Downloading JBoss EAP](#downloading-jboss-eap)
+  * [Installer](#installer)
+  * [Patches](#patches)
+* [Ansible Script](#ansible-script)
+  * [Folder group_vars](#folder-group_vars)
+  * [Folder packages](#folder-packages)
+  * [Folder roles](#folder-roles)
+  * [Files install.yml and host](#files-installyml-and-host)
+* [Cluster EAP](#cluster-eap)
+* [Load Balancer](#load-balancer)
+* [Executing script](#executing-script)
 
-## Downloading JBoss EAP 
 This section outlines the steps to download JBoss EAP and apply patches for updates.
 
 ### Installer
 1. The first step entails downloading the JBoss EAP server from the ([Red Hat Customer Portal](https://access.redhat.com)).
 2. Save the ZIP file into the 'packages/installer' folder within your script directory.
 
-### Paches
+### Patches
 This step is not necessary if you do not intend to apply updates to JBoss EAP patches; however, we highly recommend updating to the latest version. For this tutorial, the current version is 7.4.12.
 
 1. The first step entails downloading the JBoss EAP Pacthes from the ([Red Hat Customer Portal](https://access.redhat.com)).
